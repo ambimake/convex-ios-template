@@ -1,0 +1,141 @@
+import Foundation
+
+protocol TemplateConvexCalling {
+    func callAction<Response: Decodable>(
+        _ action: String,
+        requestBody: Data
+    ) async throws -> Response
+
+    func callQuery<Response: Decodable>(
+        _ query: String,
+        requestBody: Data
+    ) async throws -> Response
+}
+
+enum TemplateBackendEndpoints {
+    static let submitCommand = "commands:submitCommand"
+    static let transcribeVoiceCommand = "commands:transcribeVoiceCommand"
+    static let deleteAccount = "commands:deleteAccount"
+    static let listEntries = "entries:listEntries"
+}
+
+protocol TemplateCommandServicing {
+    func submitCommand(_ request: TemplateConvexCommandRequest) async throws -> TemplateCommandResult
+    func transcribeVoice(_ request: TemplateVoiceTranscriptionRequest) async throws -> TemplateVoiceTranscriptionResult
+    func listEntries() async throws -> [TemplateListedEntry]
+    func deleteAccount() async throws -> TemplateDeleteAccountResult
+}
+
+struct TemplateBackendClient: TemplateCommandServicing {
+    let configuration: TemplateConvexClientConfiguration?
+    let caller: TemplateConvexCalling?
+
+    init(
+        configuration: TemplateConvexClientConfiguration? = .fromInfoDictionary(Bundle.main.infoDictionary ?? [:]),
+        caller: TemplateConvexCalling? = nil
+    ) {
+        self.configuration = configuration
+        self.caller = caller
+    }
+
+    func submitCommand(_ request: TemplateConvexCommandRequest) async throws -> TemplateCommandResult {
+        try await callAction(
+            TemplateBackendEndpoints.submitCommand,
+            request: request
+        )
+    }
+
+    func transcribeVoice(_ request: TemplateVoiceTranscriptionRequest) async throws -> TemplateVoiceTranscriptionResult {
+        try await callAction(
+            TemplateBackendEndpoints.transcribeVoiceCommand,
+            request: request
+        )
+    }
+
+    func listEntries() async throws -> [TemplateListedEntry] {
+        try await callQuery(
+            TemplateBackendEndpoints.listEntries,
+            request: EmptyConvexRequest()
+        )
+    }
+
+    func deleteAccount() async throws -> TemplateDeleteAccountResult {
+        try await callAction(
+            TemplateBackendEndpoints.deleteAccount,
+            request: EmptyConvexRequest()
+        )
+    }
+
+    private func callAction<Response: Decodable, Request: Encodable>(
+        _ action: String,
+        request: Request
+    ) async throws -> Response {
+        let caller = try requireCaller(for: action)
+        let body = try JSONEncoder().encode(request)
+        return try await caller.callAction(action, requestBody: body)
+    }
+
+    private func callQuery<Response: Decodable, Request: Encodable>(
+        _ query: String,
+        request: Request
+    ) async throws -> Response {
+        let caller = try requireCaller(for: query)
+        let body = try JSONEncoder().encode(request)
+        return try await caller.callQuery(query, requestBody: body)
+    }
+
+    private func requireCaller(for endpoint: String) throws -> TemplateConvexCalling {
+        guard let configuration, !configuration.isPlaceholder else {
+            throw TemplateServiceError.missingConfiguration(
+                "Configure CONVEX_DEPLOYMENT_URL before calling \(endpoint)."
+            )
+        }
+        guard let caller else {
+            throw TemplateServiceError.missingConfiguration(
+                "Wire the Convex Swift client to \(endpoint) at \(configuration.deploymentURL.absoluteString)."
+            )
+        }
+        return caller
+    }
+}
+
+struct EmptyConvexRequest: Encodable, Equatable {}
+
+struct PlaceholderTemplateBackendClient: TemplateCommandServicing {
+    let configuration: TemplateConvexClientConfiguration?
+
+    init(configuration: TemplateConvexClientConfiguration? = .fromInfoDictionary(Bundle.main.infoDictionary ?? [:])) {
+        self.configuration = configuration
+    }
+
+    func submitCommand(_ request: TemplateConvexCommandRequest) async throws -> TemplateCommandResult {
+        _ = request
+        return try requireConfigured(action: TemplateBackendEndpoints.submitCommand)
+    }
+
+    func transcribeVoice(_ request: TemplateVoiceTranscriptionRequest) async throws -> TemplateVoiceTranscriptionResult {
+        _ = request
+        return try requireConfigured(action: TemplateBackendEndpoints.transcribeVoiceCommand)
+    }
+
+    func listEntries() async throws -> [TemplateListedEntry] {
+        try requireConfigured(action: TemplateBackendEndpoints.listEntries)
+    }
+
+    func deleteAccount() async throws -> TemplateDeleteAccountResult {
+        try requireConfigured(action: TemplateBackendEndpoints.deleteAccount)
+    }
+
+    private func requireConfigured<T>(action: String) throws -> T {
+        guard let configuration, !configuration.isPlaceholder else {
+            throw TemplateServiceError.missingConfiguration(
+                "Configure CONVEX_DEPLOYMENT_URL before calling \(action)."
+            )
+        }
+        throw TemplateServiceError.missingConfiguration(
+            "Wire the Convex Swift client to \(action) at \(configuration.deploymentURL.absoluteString)."
+        )
+    }
+}
+
+typealias TemplateConvexCommandService = PlaceholderTemplateBackendClient

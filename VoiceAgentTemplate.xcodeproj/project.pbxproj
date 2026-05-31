@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01411A6DA08908982F58B373 /* VoiceAgentRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751EE85CA8A8D4AFC5F51313 /* VoiceAgentRootView.swift */; };
+		02CFD966EF95D97800D7B7A9 /* TemplateSentryUserScopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8273B897F04C85B9FAA00E08 /* TemplateSentryUserScopeTests.swift */; };
+		23440B06B52222B8046E9E95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97B1A116686037B0AD4FFC7 /* Foundation.framework */; };
+		242F77CF7B9899439AFA640B /* TemplateVoiceCaptureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B8E84B8C0E43757A2D620 /* TemplateVoiceCaptureState.swift */; };
+		4193EA9E830DE98ABECF64AF /* CaptureBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD1E91AC505B2A3DA63524 /* CaptureBar.swift */; };
+		58E8C82D114D70D9C9C6BCF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2553EE079DA61F7F7F5C632 /* SettingsView.swift */; };
+		5B09C3A117DCEC12D7CCFDC0 /* TemplateProductAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9986AB3B3E3FC1793B3E13 /* TemplateProductAnalytics.swift */; };
+		620DA73004D41C145A6436D2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04FE92330B8CA1BF0B47833F /* PrivacyInfo.xcprivacy */; };
+		82ABC4A2FF2B01CBDB65A7BE /* TemplateSentryUserScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18EFAD7FDC846939B9E36AC /* TemplateSentryUserScope.swift */; };
+		844274AE11AD9534A296003B /* TemplateServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E327381129D84860DA8E402 /* TemplateServices.swift */; };
+		867CDC53F8DD269FD8F0ADA8 /* TemplateProductAnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4B14117806E9A52AA8A47 /* TemplateProductAnalyticsTests.swift */; };
+		86BC5593CB7FE5FABE41B26B /* TemplateConvexCommandRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721FB09E1CB235CCDD439AFC /* TemplateConvexCommandRequest.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* TemplateBackendContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F60718293A4B5C6D /* TemplateBackendContract.swift */; };
+		C3D4E5F60718293A4B5C6D7E /* TemplateBackendClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F60718293A4B5C6D7E8F /* TemplateBackendClient.swift */; };
+		E5F60718293A4B5C6D7E8F90 /* TemplateBackendClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60718293A4B5C6D7E8F9012 /* TemplateBackendClientTests.swift */; };
+		971ECEBCFC3771A82133B4A2 /* TemplateAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82110CE0C04E5DFD5450227C /* TemplateAccessibility.swift */; };
+		9AF0E3796ADA69D800110539 /* VoiceAgentTemplateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067082FDED8496D9A210386C /* VoiceAgentTemplateModelTests.swift */; };
+		D86D47BC64B99CA4AB6A4783 /* VoiceAgentTemplateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029041609E8268ABC1F888A /* VoiceAgentTemplateModel.swift */; };
+		E080AFAB8EC6EBA51FF34FE7 /* VoiceAgentTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C138FBA3148B07B2F58B794 /* VoiceAgentTemplateApp.swift */; };
+		E29259DBFFB66F2314113DB2 /* TemplateVoiceCaptureStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EFDB8C57F54B03B71187B1 /* TemplateVoiceCaptureStateTests.swift */; };
+		E374A7892F2478911687CEC7 /* TemplateConvexCommandRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1CD05E4E79FE22FA38908 /* TemplateConvexCommandRequestTests.swift */; };
+		F2C7218B7CC4427D4D8AF053 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97B1A116686037B0AD4FFC7 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F788205BCCACCCBCBA3DC4EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD84E1BE865630D860B9DEE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF652BED75252DE353CA9F94;
+			remoteInfo = VoiceAgentTemplate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04FE92330B8CA1BF0B47833F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = ios/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		067082FDED8496D9A210386C /* VoiceAgentTemplateModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceAgentTemplateModelTests.swift; path = ios/Tests/VoiceAgentTemplateModelTests.swift; sourceTree = "<group>"; };
+		0A9B8E84B8C0E43757A2D620 /* TemplateVoiceCaptureState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateVoiceCaptureState.swift; path = ios/Features/Capture/TemplateVoiceCaptureState.swift; sourceTree = "<group>"; };
+		3D0232184BEA0A9ACD700477 /* VoiceAgentTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceAgentTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C138FBA3148B07B2F58B794 /* VoiceAgentTemplateApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceAgentTemplateApp.swift; path = ios/App/VoiceAgentTemplateApp.swift; sourceTree = "<group>"; };
+		4E327381129D84860DA8E402 /* TemplateServices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateServices.swift; path = ios/Core/TemplateServices.swift; sourceTree = "<group>"; };
+		5029041609E8268ABC1F888A /* VoiceAgentTemplateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceAgentTemplateModel.swift; path = ios/App/VoiceAgentTemplateModel.swift; sourceTree = "<group>"; };
+		721FB09E1CB235CCDD439AFC /* TemplateConvexCommandRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateConvexCommandRequest.swift; path = ios/Core/TemplateConvexCommandRequest.swift; sourceTree = "<group>"; };
+		B2C3D4E5F60718293A4B5C6D /* TemplateBackendContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateBackendContract.swift; path = ios/Core/TemplateBackendContract.swift; sourceTree = "<group>"; };
+		D4E5F60718293A4B5C6D7E8F /* TemplateBackendClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateBackendClient.swift; path = ios/Core/TemplateBackendClient.swift; sourceTree = "<group>"; };
+		F60718293A4B5C6D7E8F9012 /* TemplateBackendClientTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateBackendClientTests.swift; path = ios/Tests/TemplateBackendClientTests.swift; sourceTree = "<group>"; };
+		751EE85CA8A8D4AFC5F51313 /* VoiceAgentRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceAgentRootView.swift; path = ios/App/VoiceAgentRootView.swift; sourceTree = "<group>"; };
+		82110CE0C04E5DFD5450227C /* TemplateAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateAccessibility.swift; path = ios/Core/TemplateAccessibility.swift; sourceTree = "<group>"; };
+		8273B897F04C85B9FAA00E08 /* TemplateSentryUserScopeTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateSentryUserScopeTests.swift; path = ios/Tests/TemplateSentryUserScopeTests.swift; sourceTree = "<group>"; };
+		89A1CD05E4E79FE22FA38908 /* TemplateConvexCommandRequestTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateConvexCommandRequestTests.swift; path = ios/Tests/TemplateConvexCommandRequestTests.swift; sourceTree = "<group>"; };
+		90EFDB8C57F54B03B71187B1 /* TemplateVoiceCaptureStateTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateVoiceCaptureStateTests.swift; path = ios/Tests/TemplateVoiceCaptureStateTests.swift; sourceTree = "<group>"; };
+		9A9986AB3B3E3FC1793B3E13 /* TemplateProductAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateProductAnalytics.swift; path = ios/Core/TemplateProductAnalytics.swift; sourceTree = "<group>"; };
+		9D4CA00B064C2483185DD971 /* VoiceAgentTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceAgentTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F4B14117806E9A52AA8A47 /* TemplateProductAnalyticsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateProductAnalyticsTests.swift; path = ios/Tests/TemplateProductAnalyticsTests.swift; sourceTree = "<group>"; };
+		D18EFAD7FDC846939B9E36AC /* TemplateSentryUserScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TemplateSentryUserScope.swift; path = ios/Core/TemplateSentryUserScope.swift; sourceTree = "<group>"; };
+		E2553EE079DA61F7F7F5C632 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = ios/Features/Settings/SettingsView.swift; sourceTree = "<group>"; };
+		E7BD1E91AC505B2A3DA63524 /* CaptureBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CaptureBar.swift; path = ios/Features/Capture/CaptureBar.swift; sourceTree = "<group>"; };
+		E97B1A116686037B0AD4FFC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0A1AB0D199E4BB576DE94BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23440B06B52222B8046E9E95 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A31BF95D15A8DB50DF504 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2C7218B7CC4427D4D8AF053 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		094FE392C89FA84D95AB2CE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D4CA00B064C2483185DD971 /* VoiceAgentTemplate.app */,
+				3D0232184BEA0A9ACD700477 /* VoiceAgentTemplateTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33DE2D97FF1F62E024A55304 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				751EE85CA8A8D4AFC5F51313 /* VoiceAgentRootView.swift */,
+				4C138FBA3148B07B2F58B794 /* VoiceAgentTemplateApp.swift */,
+				5029041609E8268ABC1F888A /* VoiceAgentTemplateModel.swift */,
+				82110CE0C04E5DFD5450227C /* TemplateAccessibility.swift */,
+				721FB09E1CB235CCDD439AFC /* TemplateConvexCommandRequest.swift */,
+				B2C3D4E5F60718293A4B5C6D /* TemplateBackendContract.swift */,
+				D4E5F60718293A4B5C6D7E8F /* TemplateBackendClient.swift */,
+				9A9986AB3B3E3FC1793B3E13 /* TemplateProductAnalytics.swift */,
+				D18EFAD7FDC846939B9E36AC /* TemplateSentryUserScope.swift */,
+				4E327381129D84860DA8E402 /* TemplateServices.swift */,
+				E7BD1E91AC505B2A3DA63524 /* CaptureBar.swift */,
+				0A9B8E84B8C0E43757A2D620 /* TemplateVoiceCaptureState.swift */,
+				E2553EE079DA61F7F7F5C632 /* SettingsView.swift */,
+				04FE92330B8CA1BF0B47833F /* PrivacyInfo.xcprivacy */,
+				89A1CD05E4E79FE22FA38908 /* TemplateConvexCommandRequestTests.swift */,
+				F60718293A4B5C6D7E8F9012 /* TemplateBackendClientTests.swift */,
+				B6F4B14117806E9A52AA8A47 /* TemplateProductAnalyticsTests.swift */,
+				8273B897F04C85B9FAA00E08 /* TemplateSentryUserScopeTests.swift */,
+				90EFDB8C57F54B03B71187B1 /* TemplateVoiceCaptureStateTests.swift */,
+				067082FDED8496D9A210386C /* VoiceAgentTemplateModelTests.swift */,
+			);
+			name = ios;
+			sourceTree = "<group>";
+		};
+		459CB00EF160BA0B35719315 = {
+			isa = PBXGroup;
+			children = (
+				094FE392C89FA84D95AB2CE3 /* Products */,
+				A0FDD634D9D2C6774AE4B70C /* Frameworks */,
+				33DE2D97FF1F62E024A55304 /* ios */,
+			);
+			sourceTree = "<group>";
+		};
+		A0FDD634D9D2C6774AE4B70C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D274AC91A4F2C89AEE0F6FB6 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D274AC91A4F2C89AEE0F6FB6 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E97B1A116686037B0AD4FFC7 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E793B9390DB98DE02CA3D46 /* VoiceAgentTemplateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72325CD2DECA92AA5688AFC9 /* Build configuration list for PBXNativeTarget "VoiceAgentTemplateTests" */;
+			buildPhases = (
+				7ACFE30A0BA405CD08667AA2 /* Sources */,
+				A0A1AB0D199E4BB576DE94BD /* Frameworks */,
+				56652F929E5A1FF1A9D8EBF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2C7E4A95861BD0A40E23B5F /* PBXTargetDependency */,
+			);
+			name = VoiceAgentTemplateTests;
+			productName = VoiceAgentTemplateTests;
+			productReference = 3D0232184BEA0A9ACD700477 /* VoiceAgentTemplateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CF652BED75252DE353CA9F94 /* VoiceAgentTemplate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2A183E9489368A977194F7F /* Build configuration list for PBXNativeTarget "VoiceAgentTemplate" */;
+			buildPhases = (
+				49E60FC5E49367F1E93B11D5 /* Sources */,
+				C33A31BF95D15A8DB50DF504 /* Frameworks */,
+				5CE0BA2E24A44B0B425E47F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoiceAgentTemplate;
+			productName = VoiceAgentTemplate;
+			productReference = 9D4CA00B064C2483185DD971 /* VoiceAgentTemplate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD84E1BE865630D860B9DEE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1610;
+			};
+			buildConfigurationList = AFCDA35749946DC1263025F6 /* Build configuration list for PBXProject "VoiceAgentTemplate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 459CB00EF160BA0B35719315;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 094FE392C89FA84D95AB2CE3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF652BED75252DE353CA9F94 /* VoiceAgentTemplate */,
+				0E793B9390DB98DE02CA3D46 /* VoiceAgentTemplateTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56652F929E5A1FF1A9D8EBF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE0BA2E24A44B0B425E47F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				620DA73004D41C145A6436D2 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49E60FC5E49367F1E93B11D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01411A6DA08908982F58B373 /* VoiceAgentRootView.swift in Sources */,
+				E080AFAB8EC6EBA51FF34FE7 /* VoiceAgentTemplateApp.swift in Sources */,
+				D86D47BC64B99CA4AB6A4783 /* VoiceAgentTemplateModel.swift in Sources */,
+				971ECEBCFC3771A82133B4A2 /* TemplateAccessibility.swift in Sources */,
+				86BC5593CB7FE5FABE41B26B /* TemplateConvexCommandRequest.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* TemplateBackendContract.swift in Sources */,
+				C3D4E5F60718293A4B5C6D7E /* TemplateBackendClient.swift in Sources */,
+				5B09C3A117DCEC12D7CCFDC0 /* TemplateProductAnalytics.swift in Sources */,
+				82ABC4A2FF2B01CBDB65A7BE /* TemplateSentryUserScope.swift in Sources */,
+				844274AE11AD9534A296003B /* TemplateServices.swift in Sources */,
+				4193EA9E830DE98ABECF64AF /* CaptureBar.swift in Sources */,
+				242F77CF7B9899439AFA640B /* TemplateVoiceCaptureState.swift in Sources */,
+				58E8C82D114D70D9C9C6BCF9 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ACFE30A0BA405CD08667AA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E374A7892F2478911687CEC7 /* TemplateConvexCommandRequestTests.swift in Sources */,
+				E5F60718293A4B5C6D7E8F90 /* TemplateBackendClientTests.swift in Sources */,
+				867CDC53F8DD269FD8F0ADA8 /* TemplateProductAnalyticsTests.swift in Sources */,
+				02CFD966EF95D97800D7B7A9 /* TemplateSentryUserScopeTests.swift in Sources */,
+				E29259DBFFB66F2314113DB2 /* TemplateVoiceCaptureStateTests.swift in Sources */,
+				9AF0E3796ADA69D800110539 /* VoiceAgentTemplateModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2C7E4A95861BD0A40E23B5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VoiceAgentTemplate;
+			target = CF652BED75252DE353CA9F94 /* VoiceAgentTemplate */;
+			targetProxy = F788205BCCACCCBCBA3DC4EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B6A3FA5F906280F5C7EDA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		41C7F8D04B04C3DB947876DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.voiceagent.template.tests;
+				PRODUCT_NAME = VoiceAgentTemplateTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceAgentTemplate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoiceAgentTemplate";
+			};
+			name = Debug;
+		};
+		7928B4E273CAD79189C19E49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7A42CE0E81FD1D1FE77DE3BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.voiceagent.template;
+				PRODUCT_MODULE_NAME = VoiceAgentTemplate;
+				PRODUCT_NAME = VoiceAgentTemplate;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9654FC87A7D3C948EDA07590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.voiceagent.template.tests;
+				PRODUCT_NAME = VoiceAgentTemplateTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceAgentTemplate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoiceAgentTemplate";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4B858BAA9F0830F5DFDE5E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.voiceagent.template;
+				PRODUCT_MODULE_NAME = VoiceAgentTemplate;
+				PRODUCT_NAME = VoiceAgentTemplate;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72325CD2DECA92AA5688AFC9 /* Build configuration list for PBXNativeTarget "VoiceAgentTemplateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9654FC87A7D3C948EDA07590 /* Release */,
+				41C7F8D04B04C3DB947876DB /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFCDA35749946DC1263025F6 /* Build configuration list for PBXProject "VoiceAgentTemplate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B6A3FA5F906280F5C7EDA38 /* Debug */,
+				7928B4E273CAD79189C19E49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2A183E9489368A977194F7F /* Build configuration list for PBXNativeTarget "VoiceAgentTemplate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4B858BAA9F0830F5DFDE5E6 /* Release */,
+				7A42CE0E81FD1D1FE77DE3BE /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD84E1BE865630D860B9DEE4 /* Project object */;
+}

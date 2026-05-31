@@ -1,0 +1,73 @@
+{
+  "actions": {
+    "commands:submitCommand": {
+      "request": {
+        "text": "Create a note saying hello",
+        "source": "typed"
+      },
+      "success": {
+        "status": "applied",
+        "summary": "Created entry: hello.",
+        "operations": [
+          {
+            "type": "create_entry",
+            "body": "hello"
+          }
+        ],
+        "entries": [
+          {
+            "body": "hello",
+            "source": "typed"
+          }
+        ]
+      }
+    },
+    "commands:transcribeVoiceCommand": {
+      "request": {
+        "audioBase64": "dGVzdA==",
+        "mimeType": "audio/m4a"
+      },
+      "success": {
+        "status": "transcribed",
+        "transcript": "Create a note saying voice result"
+      },
+      "configurationMissing": {
+        "status": "configuration_missing",
+        "missing": "GROQ_API_KEY"
+      }
+    },
+    "commands:deleteAccount": {
+      "request": {},
+      "success": {
+        "status": "deleted",
+        "deleted": {
+          "profiles": 0,
+          "entries": 1,
+          "commandHistory": 1,
+          "appleSignInCredentials": 0,
+          "usageEvents": 1
+        },
+        "batches": 1,
+        "cleanup": {
+          "posthog": {
+            "status": "skipped"
+          },
+          "sentry": {
+            "status": "skipped"
+          }
+        }
+      }
+    }
+  },
+  "queries": {
+    "entries:listEntries": {
+      "request": {},
+      "success": [
+        {
+          "body": "hello",
+          "source": "typed"
+        }
+      ]
+    }
+  }
+}
