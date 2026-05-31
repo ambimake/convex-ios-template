@@ -187,9 +187,13 @@ private struct PublicActionContract: Decodable {
         case "cleanupFailed":
             return try JSONEncoder().encode(XCTUnwrap(cleanupFailed))
         default:
-            throw XCTSkip("Unsupported named response: \(name)")
+            throw PublicActionContractError.unsupportedNamedResponse(name)
         }
     }
+}
+
+private enum PublicActionContractError: Error {
+    case unsupportedNamedResponse(String)
 }
 
 private struct PublicQueryContract: Decodable {
