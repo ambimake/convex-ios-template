@@ -13,6 +13,7 @@ enum TemplateAppleSignInError: Error, Equatable, LocalizedError {
     case missingIdentityToken
     case invalidIdentityTokenData
     case invalidCredential
+    case alreadyInProgress
     case failed(String)
 
     var errorDescription: String? {
@@ -25,6 +26,8 @@ enum TemplateAppleSignInError: Error, Equatable, LocalizedError {
             return "Apple returned an identity token that is not valid UTF-8."
         case .invalidCredential:
             return "Apple returned an unexpected credential type."
+        case .alreadyInProgress:
+            return "Sign in with Apple is already in progress."
         case .failed(let message):
             return message
         }
@@ -67,12 +70,16 @@ enum TemplateAppleSignInCredentialParser {
     }
 }
 
-final class TemplateAppleSignInService: NSObject, TemplateAppleSignInPerforming {
+final class TemplateAppleSignInService: NSObject, TemplateAppleSignInPerforming, @unchecked Sendable {
     private var continuation: CheckedContinuation<TemplateAppleSignInResult, Error>?
 
     @MainActor
     func signIn() async throws -> TemplateAppleSignInResult {
-        try await withCheckedThrowingContinuation { continuation in
+        guard continuation == nil else {
+            throw TemplateAppleSignInError.alreadyInProgress
+        }
+
+        return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
 
             let request = ASAuthorizationAppleIDProvider().createRequest()

@@ -67,7 +67,7 @@ Prototype-specific:
   - Do not pretend Apple cached login can mint a fresh ID token unless proven.
 - `verification`:
   - passed: `xcodebuild -resolvePackageDependencies -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate` (Convex Swift `0.8.1`)
-  - passed: `xcodebuild test -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16'` (39 tests, 0 failures)
+  - passed: `xcodebuild test -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16'` (42 tests, 0 failures)
 
 ### node.entry-contracts
 

@@ -24,14 +24,18 @@ enum TemplateConvexArgumentDecoder {
         if let string = value as? String {
             return string
         }
-        if let bool = value as? Bool {
-            return bool
-        }
-        if let int = value as? Int {
-            return int
-        }
-        if let double = value as? Double {
-            return double
+        if let number = value as? NSNumber {
+            if CFGetTypeID(number) == CFBooleanGetTypeID() {
+                return number.boolValue
+            }
+
+            let doubleValue = number.doubleValue
+            if doubleValue.rounded(.towardZero) == doubleValue,
+               doubleValue >= Double(Int.min),
+               doubleValue <= Double(Int.max) {
+                return number.intValue
+            }
+            return doubleValue
         }
         if let array = value as? [Any] {
             return try array.map { try convexValue(from: $0) }
