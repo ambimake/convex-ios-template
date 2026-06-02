@@ -4,7 +4,6 @@
 import { convexTest } from "convex-test";
 import { describe, expect, it } from "vitest";
 import { api } from "./_generated/api";
-import type { Id } from "./_generated/dataModel";
 import schema from "./schema";
 
 const modules = import.meta.glob("./**/*.ts");
@@ -50,7 +49,7 @@ describe("entries", () => {
     const [entry] = await t.query(api.entries.listEntries, {});
 
     const updated = await t.mutation(api.entries.updateEntry, {
-      id: entry.id as Id<"entries">,
+      id: entry.id,
       body: " edited ",
     });
 
@@ -74,7 +73,7 @@ describe("entries", () => {
     const otherUser = base.withIdentity(otherIdentity);
     await expect(
       otherUser.mutation(api.entries.updateEntry, {
-        id: entry.id as Id<"entries">,
+        id: entry.id,
         body: "stolen",
       }),
     ).rejects.toThrow("ENTRY_NOT_FOUND");

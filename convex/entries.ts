@@ -1,17 +1,18 @@
-import { internal } from "./_generated/api";
 import { mutation, query } from "./_generated/server";
+import type { Id } from "./_generated/dataModel";
 import { requireOwnerKey } from "./lib/auth";
+import { updateEntryBodyForOwner } from "./lib/apply";
 import { commandSourceValidator } from "./lib/operations";
 import { v } from "convex/values";
 
 export const entryListItemValidator = v.object({
-  id: v.string(),
+  id: v.id("entries"),
   body: v.string(),
   source: commandSourceValidator,
 });
 
 export type EntryListItem = {
-  id: string;
+  id: Id<"entries">;
   body: string;
   source: "typed" | "voice";
 };
@@ -38,7 +39,7 @@ export const updateEntry = mutation({
   returns: entryListItemValidator,
   handler: async (ctx, args): Promise<EntryListItem> => {
     const ownerKey = await requireOwnerKey(ctx);
-    return await ctx.runMutation(internal.lib.apply.updateEntryBody, {
+    return await updateEntryBodyForOwner(ctx, {
       ownerKey,
       entryId: args.id,
       body: args.body,
