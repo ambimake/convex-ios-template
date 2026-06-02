@@ -45,7 +45,6 @@ Prototype-specific:
   - `plutil -lint ios/Info.plist`
   - `xcodebuild -list -project VoiceAgentTemplate.xcodeproj`
   - `xcodebuild build -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16'`
-- `ship`: open PR against `main`.
 
 ### node.runtime-convex-auth
 
