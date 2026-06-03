@@ -314,8 +314,8 @@ Safe concurrency:
     attempts: 1
   - command: `npm test`
     status: passed
-    evidence: `vitest run convex scripts` passed 7 files and 29 tests; existing convex-test scheduled-function stderr in `account.test.ts`, exit 0
-    attempts: 1
+    evidence: `vitest run convex scripts` passed 7 files and 30 tests after review fix; existing convex-test scheduled-function stderr in `account.test.ts`, exit 0
+    attempts: 2
 - `human_gates`: none
 - `notes`:
   - This node should explain replacement order, not perform a replacement.
@@ -377,13 +377,18 @@ Safe concurrency:
     `issue`: External review/check contexts remained pending after polling.
     `owner`: GitHub review/check providers.
     `next`: Rerun `gh pr checks 10` and inspect comments/reviews once CodeRabbit, Greptile, and claude-review finish.
+  - `origin`: Qodo review
+    `issue`: `verify:template` documented source-app Xcode project path scans but did not include `VoiceAgentTemplate.xcodeproj/`.
+    `resolution`: Added `VoiceAgentTemplate.xcodeproj` to scanned roots and covered `project.pbxproj` with a focused readiness test.
 - `actual_changed_paths`:
   - `docs/plans/template-hardening-v2.md`
   - PR body/checklist
 - `actual_evidence`:
-  - local gate: `npm test` passed 7 files and 29 tests
+  - local gate: `npm test` passed 7 files and 30 tests after review fix
   - local gate: `npm run typecheck:convex` passed
   - local gate: `xcodebuild test -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16'` passed 47 tests
+  - review fix gate: `npm run verify:template` passed
+  - review fix gate: `npx vitest run scripts/verify-template-readiness.test.mjs` passed 3 tests
   - PR: https://github.com/ambimake/convex-ios-template/pull/10
   - PR state: open, not draft, mergeable
   - review triage: CodeRabbit and Qodo comments were summaries/in-progress notices with no actionable feedback; no reviews submitted

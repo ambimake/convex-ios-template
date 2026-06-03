@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findReadinessIssues } from "./verify-template-readiness.mjs";
+import { findReadinessIssues, isDefaultScannedPath } from "./verify-template-readiness.mjs";
 
 describe("template readiness checks", () => {
   it("accepts placeholder env values and ignored local secret files", () => {
@@ -78,6 +78,29 @@ describe("template readiness checks", () => {
         path: "docs/deployment.md",
         line: 1,
         message: "GROQ_API_KEY looks like a live secret assignment",
+      },
+    ]);
+  });
+
+  it("scans the tracked Xcode project for stale source-app project references", () => {
+    expect(isDefaultScannedPath("VoiceAgentTemplate.xcodeproj/project.pbxproj")).toBe(true);
+
+    const issues = findReadinessIssues({
+      files: [
+        {
+          path: "VoiceAgentTemplate.xcodeproj/project.pbxproj",
+          content: "SOURCE_APP_PROJECT = yaptask.xcodeproj;",
+        },
+      ],
+      ignoredPaths: new Set([".env", ".env.local", "ios/Local.xcconfig"]),
+    });
+
+    expect(issues).toEqual([
+      {
+        type: "source_app_reference",
+        path: "VoiceAgentTemplate.xcodeproj/project.pbxproj",
+        line: 1,
+        message: "YapTask Xcode project reference must not be tracked",
       },
     ]);
   });

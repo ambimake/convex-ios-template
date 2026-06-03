@@ -16,6 +16,7 @@ const DEFAULT_SCANNED_PATHS = [
   "ENGINEERING.md",
   "README.md",
   "TEMPLATE_VARIABLES.md",
+  "VoiceAgentTemplate.xcodeproj",
   "convex",
   "docs",
   "ios",
@@ -124,13 +125,17 @@ function trackedFiles() {
   return output
     .split("\0")
     .filter(Boolean)
-    .filter((path) => DEFAULT_SCANNED_PATHS.some((root) => path === root || path.startsWith(`${root}/`)))
+    .filter(isDefaultScannedPath)
     .filter((path) => !HISTORICAL_PLAN_PATTERN.test(path))
     .filter((path) => !SELF_TEST_PATTERN.test(path))
     .map((path) => ({
       path,
       content: readFileSync(path, "utf8"),
     }));
+}
+
+export function isDefaultScannedPath(path) {
+  return DEFAULT_SCANNED_PATHS.some((root) => path === root || path.startsWith(`${root}/`));
 }
 
 function ignoredPaths() {
