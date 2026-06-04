@@ -133,9 +133,9 @@ final class TemplateVoiceCaptureServiceTests: XCTestCase {
             dependencies: dependencies
         )
 
-        let decoded = Data(base64Encoded: audio.audioBase64)
-        XCTAssertEqual(decoded?.count, 512_000)
-        XCTAssertLessThanOrEqual(decoded?.count ?? Int.max, 700_000)
+        let decoded = try XCTUnwrap(Data(base64Encoded: audio.audioBase64))
+        XCTAssertEqual(decoded.count, 512_000)
+        XCTAssertLessThanOrEqual(audio.audioBase64.utf8.count, 700_000)
     }
 
     func testOversizedRecordingFailsBeforeEncoding() async {
