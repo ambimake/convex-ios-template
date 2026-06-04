@@ -151,10 +151,12 @@ final class VoiceAgentTemplateModelTests: XCTestCase {
     }
 
     func testVoiceCommandFallsBackWhenMicrophonePermissionDenied() async {
+        let commandService = StubCommandService()
+        let voiceCapture = StubVoiceCapture(audio: TemplateVoiceAudio(audioBase64: "dGVzdA==", mimeType: "audio/m4a"))
         let model = VoiceAgentTemplateModel(
             sessionService: StubSessionService(result: .success(TemplateSession(ownerKey: "test|owner"))),
-            commandService: StubCommandService(),
-            voiceCapture: StubVoiceCapture(audio: TemplateVoiceAudio(audioBase64: "dGVzdA==", mimeType: "audio/m4a")),
+            commandService: commandService,
+            voiceCapture: voiceCapture,
             analytics: TemplateProductAnalytics(configuration: nil),
             sentryScope: TemplateSentryUserScope(),
             launchArguments: []
@@ -163,6 +165,9 @@ final class VoiceAgentTemplateModelTests: XCTestCase {
         await model.startVoiceCommand(permission: .denied)
 
         XCTAssertEqual(model.voiceState, .typedFallback(reason: "permission_denied"))
+        XCTAssertEqual(voiceCapture.captureCallCount, 0)
+        XCTAssertEqual(commandService.transcriptionRequests, [])
+        XCTAssertEqual(commandService.submittedCommands, [])
     }
 
     func testVoiceCommandUsesSpecificTypedFallbackReasonForCaptureFailures() async {
@@ -359,6 +364,7 @@ private final class StubCommandService: TemplateCommandServicing {
 
 private final class StubVoiceCapture: TemplateVoiceCapturing {
     let result: Result<TemplateVoiceAudio, TemplateServiceError>
+    private(set) var captureCallCount = 0
 
     init(audio: TemplateVoiceAudio? = nil) {
         if let audio {
@@ -373,6 +379,7 @@ private final class StubVoiceCapture: TemplateVoiceCapturing {
     }
 
     func captureAudio(permission: TemplateMicrophonePermission) async throws -> TemplateVoiceAudio {
-        try result.get()
+        captureCallCount += 1
+        return try result.get()
     }
 }
