@@ -16,10 +16,24 @@ Apple AdServices attribution via a backend token exchange, no IDFA. See
 
 ## Status in this template
 
-This is the **decision + shape**, not shipped code. A complete reference
-implementation exists in a source-app checkout: an iOS `AppleAdsAttributionReporter`
-(fetch/upload/retry/dedup) plus a Convex HTTP action and core helpers
-(validation, Apple exchange, hashing, rate limits). Porting it — with the schema
-tables, HTTP route, and rate-limit config it needs — is a focused follow-up.
-Campaign and localization strategy is product-specific and stays out of the
-template.
+**Shipped (backend, tested):**
+
+- `convex/lib/attributionCore.ts` — pure helpers (payload validation, Apple token
+  exchange with injectable fetch/sleep, dedup hash), unit-tested.
+- `convex/attribution.ts` — the HTTP action plus rate-limit and claim/upsert
+  mutations; `convex/http.ts` mounts `POST /v1/apple-ads-attribution`.
+- `convex/attribution.test.ts` — core, mutation, and end-to-end HTTP-action tests
+  (offline, via `convex-test`).
+- Schema tables `adAttributions` + `adAttributionRateLimits`.
+
+**Shipped (iOS seam, follows the template convention — not compiled in CI here):**
+
+- `ios/Core/TemplateAdAttributionReporter.swift` — fetches the AdServices token
+  and uploads once per install with retry/dedup, and **no-ops until** the endpoint
+  URL and shared secret are configured via build settings.
+
+**Wiring:** set `APPLE_ADS_ATTRIBUTION_SHARED_SECRET` (and optionally
+`APPLE_ADS_ATTRIBUTION_BUNDLE_ID`) as Convex deployment env vars; point the iOS
+reporter at the deployment's `/v1/apple-ads-attribution` URL with the same
+secret. Campaign and localization strategy is product-specific and stays out of
+the template.

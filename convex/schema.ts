@@ -50,6 +50,43 @@ export default defineSchema({
     createdAt: v.number(),
   }).index("by_ownerKey_and_createdAt", ["ownerKey", "createdAt"]),
 
+  // Install-attribution records (see convex/attribution.ts). Keyed by an
+  // anonymous analytics/install ID, not IDFA. Stores the campaign result plus a
+  // hash of the AdServices token for dedup; the raw token is never stored.
+  adAttributions: defineTable({
+    analyticsUserID: v.string(),
+    bundleID: v.string(),
+    appVersion: v.string(),
+    appBuild: v.string(),
+    attributionTokenHash: v.string(),
+    status: v.union(v.literal("pending"), v.literal("completed"), v.literal("failed")),
+    attribution: v.optional(v.boolean()),
+    orgId: v.optional(v.union(v.number(), v.string())),
+    campaignId: v.optional(v.union(v.number(), v.string())),
+    adGroupId: v.optional(v.union(v.number(), v.string())),
+    keywordId: v.optional(v.union(v.number(), v.string())),
+    adId: v.optional(v.union(v.number(), v.string())),
+    creativeSetId: v.optional(v.union(v.number(), v.string())),
+    countryOrRegion: v.optional(v.string()),
+    conversionType: v.optional(v.string()),
+    claimType: v.optional(v.string()),
+    supplyPlacement: v.optional(v.string()),
+    clickDate: v.optional(v.string()),
+    impressionDate: v.optional(v.string()),
+    rawAttribution: v.any(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_analyticsUserID", ["analyticsUserID"])
+    .index("by_attributionTokenHash", ["attributionTokenHash"]),
+
+  adAttributionRateLimits: defineTable({
+    key: v.string(),
+    windowStartedAt: v.number(),
+    requestCount: v.number(),
+    updatedAt: v.number(),
+  }).index("by_key", ["key"]),
+
   accountDeletionJobs: defineTable({
     ownerKey: v.string(),
     status: accountDeletionJobStatusValidator,

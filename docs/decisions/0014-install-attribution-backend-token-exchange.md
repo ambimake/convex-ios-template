@@ -30,6 +30,9 @@ that must be exchanged with Apple's API for campaign data.
 - Downstream funnel joins (onboarding → activation → purchase) key on the
   anonymous ID. Campaign/localization strategy is product-specific and lives
   outside the template.
-- See [docs/guides/attribution.md](../guides/attribution.md). A full reference
-  implementation (iOS reporter + Convex HTTP action + core helpers) exists in a
-  source-app checkout; porting the code is a follow-up.
+- Implemented in this template: `convex/attribution.ts` (HTTP action + rate-limit
+  and claim mutations), `convex/lib/attributionCore.ts` (pure helpers, unit-tested
+  in `convex/attribution.test.ts`), the `/v1/apple-ads-attribution` route in
+  `convex/http.ts`, and the `ios/Core/TemplateAdAttributionReporter.swift` seam
+  (no-ops until the endpoint + shared secret are configured). See
+  [docs/guides/attribution.md](../guides/attribution.md).

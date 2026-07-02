@@ -9,8 +9,10 @@
  */
 
 import type * as account from "../account.js";
+import type * as attribution from "../attribution.js";
 import type * as commands from "../commands.js";
 import type * as entries from "../entries.js";
+import type * as http from "../http.js";
 import type * as lib_apply from "../lib/apply.js";
 import type * as lib_auth from "../lib/auth.js";
 import type * as lib_commandInterpreter from "../lib/commandInterpreter.js";
@@ -29,8 +31,10 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   account: typeof account;
+  attribution: typeof attribution;
   commands: typeof commands;
   entries: typeof entries;
+  http: typeof http;
   "lib/apply": typeof lib_apply;
   "lib/auth": typeof lib_auth;
   "lib/commandInterpreter": typeof lib_commandInterpreter;
