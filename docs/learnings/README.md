@@ -18,3 +18,17 @@ that match the work area.
 - [Eval fixture robustness](eval-fixture-robustness.md): open before writing
   eval fixtures or judge rubrics.
 - [Eval judge gates](eval-judge-gates.md): open before wiring evals into CI.
+- [Voice pipeline stage ownership](voice-pipeline-stage-ownership.md): open
+  before changing voice capture status, phase priority, or permission follow-through.
+- [Convex provider test mocking](convex-provider-test-mocking.md): open before
+  changing backend actions that call an LLM/transcription provider or their tests.
+- [ConvexMobile error shape](convex-mobile-error-shape.md): open before changing
+  Swift Convex transport failure handling or load-recovery classification.
+- [Swift Convex auth query reads](swift-convex-auth-query-reads.md): open before
+  adding an authenticated one-shot read from the Swift client.
+- [Convex auth ownership](convex-auth-ownership.md): open before writing any
+  owner-scoped Convex query or mutation.
+- [Diagnostics identity fixtures](diagnostics-identity-fixtures.md): open before
+  adding a cross-runtime diagnostics/vendor identity.
+- [iOS permission state mapping](ios-permission-state-mapping.md): open before
+  building a multi-permission iOS flow.
