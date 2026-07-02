@@ -87,6 +87,27 @@ export default defineSchema({
     updatedAt: v.number(),
   }).index("by_key", ["key"]),
 
+  // Backend-owned subscription entitlement (see convex/subscription.ts). One row
+  // per owner. The client can only submit evidence (→ pending_verification); a
+  // trusted verification step sets the verified states. Stores a hash of the
+  // evidence, never the raw receipt.
+  subscriptions: defineTable({
+    ownerKey: v.string(),
+    productId: v.string(),
+    status: v.union(
+      v.literal("pending_verification"),
+      v.literal("verified_active"),
+      v.literal("verified_expired"),
+      v.literal("revoked"),
+      v.literal("verification_failed"),
+    ),
+    expiresAt: v.optional(v.number()),
+    revokedAt: v.optional(v.number()),
+    evidenceHash: v.string(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_ownerKey", ["ownerKey"]),
+
   accountDeletionJobs: defineTable({
     ownerKey: v.string(),
     status: accountDeletionJobStatusValidator,

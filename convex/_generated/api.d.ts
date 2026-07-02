@@ -21,6 +21,7 @@ import type * as lib_sentry from "../lib/sentry.js";
 import type * as lib_voiceTranscription from "../lib/voiceTranscription.js";
 import type * as posthog from "../posthog.js";
 import type * as sentry from "../sentry.js";
+import type * as subscription from "../subscription.js";
 import type * as usageEvents from "../usageEvents.js";
 
 import type {
@@ -43,6 +44,7 @@ declare const fullApi: ApiFromModules<{
   "lib/voiceTranscription": typeof lib_voiceTranscription;
   posthog: typeof posthog;
   sentry: typeof sentry;
+  subscription: typeof subscription;
   usageEvents: typeof usageEvents;
 }>;
 

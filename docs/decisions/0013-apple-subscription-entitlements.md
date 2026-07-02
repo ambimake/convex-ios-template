@@ -30,5 +30,10 @@ direct StoreKit with backend-owned entitlement.
 - A hard-gated launch (only an active or verification-pending entitlement admits
   the main experience) is one option layered on top; a metered free tier with a
   client-side counter (Keychain-persisted so it survives reinstall) is another.
-- See [docs/guides/payments.md](../guides/payments.md). Reference implementations
-  exist in the source-app checkouts; the iOS StoreKit code is a follow-up port.
+- Implemented in this template (backend): `convex/lib/subscriptionPlan.ts` (pure
+  tier/status/limit resolution), `convex/subscription.ts` (owner-derived
+  `currentPlan` query, `submitEntitlementEvidence` that can only produce
+  `pending_verification`, and a trusted `applyVerifiedEntitlement` internal
+  mutation), the `subscriptions` table, and `convex/subscription.test.ts`. The
+  iOS StoreKit purchase UI and the Apple App Store Server API verification step
+  are clone seams. See [docs/guides/payments.md](../guides/payments.md).
