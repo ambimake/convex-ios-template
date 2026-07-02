@@ -105,8 +105,13 @@ Reusable agent guidance lives under `.agents/`:
 
 - `.agents/skills/tdd`: red-green-refactor workflow for backend and Swift seams.
 - `.agents/skills/diagnose`: disciplined debugging loop.
-- `.agents/skills/choose-work`, `plan-work`, `execute-work`, and `ship-work`:
-  generic Linear-primary workflow skills.
+- `.agents/skills/choose-work`, `shape-work`, `plan-work`, `execute-work`,
+  `ship-work`, `create-pr`, `handoff`, and `compound-learning`: generic
+  tracker-primary workflow skills.
+- `.agents/skills/review-panel`, `grill-me`, `ubiquitous-language`,
+  `write-a-skill`, `zoom-out`, `caveman`: focused support skills.
+- `.agents/skills/backport-lessons`: rework source-app lessons into generic
+  template assets (see `docs/decisions/`, `docs/guides/`, `docs/learnings/`).
 - `.agents/skills/convex-voice-agent`: Convex command, auth, voice, vendor, and
   account-lifecycle boundaries.
 - `.agents/skills/ios-voice-template`: SwiftUI, capture, accessibility, and
