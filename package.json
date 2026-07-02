@@ -3,9 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "vitest run convex scripts",
+    "test": "vitest run convex scripts evals",
     "test:convex": "vitest run convex",
     "typecheck:convex": "tsc -p convex/tsconfig.json",
+    "typecheck:evals": "tsc -p evals/tsconfig.json",
+    "evals": "tsx evals/src/cli.ts --mode full",
+    "evals:smoke": "tsx evals/src/cli.ts --mode smoke",
+    "check:no-product-leak": "node scripts/check-no-product-leak.mjs",
+    "verify": "npm run typecheck:convex && npm run typecheck:evals && npm run check:no-product-leak && npm test",
     "verify:template": "node scripts/verify-template-readiness.mjs"
   },
   "dependencies": {
@@ -16,6 +21,7 @@
     "@edge-runtime/vm": "^5.0.0",
     "@types/node": "^20.19.41",
     "convex-test": "^0.0.51",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vite": "^8.0.11",
     "vitest": "^2.1.8"

@@ -1,0 +1,6 @@
+{
+  "id": "classify-sentiment",
+  "prompt": "Classify the sentiment as exactly one word (positive/negative/neutral): I absolutely loved it.",
+  "checks": [{ "type": "regex", "pattern": "^\\s*positive\\s*$" }],
+  "judge": { "rubric": "Output is the single word 'positive'.", "minScore": 4 }
+}
