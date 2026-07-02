@@ -6,6 +6,7 @@ export const accountDeletionOwnedTableNames = Object.freeze([
   "commandHistory",
   "appleSignInCredentials",
   "usageEvents",
+  "subscriptions",
 ] as const);
 
 export type AccountDeletionOwnedTableName = typeof accountDeletionOwnedTableNames[number];
@@ -16,6 +17,7 @@ const deleteCountValidators = {
   commandHistory: v.number(),
   appleSignInCredentials: v.number(),
   usageEvents: v.number(),
+  subscriptions: v.number(),
 } satisfies Record<AccountDeletionOwnedTableName, ReturnType<typeof v.number>>;
 
 export const deleteCountsValidator = v.object(deleteCountValidators);

@@ -93,6 +93,7 @@ enum TemplateDeleteAccountResult: Decodable, Equatable {
         let commandHistory: Int
         let appleSignInCredentials: Int
         let usageEvents: Int
+        let subscriptions: Int
     }
 
     struct CleanupStatus: Decodable, Equatable {
