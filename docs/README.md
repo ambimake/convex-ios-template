@@ -25,7 +25,7 @@ truth. Subdirectories hold repeated artifacts or background.
 
 ## Agent Pack
 
-- [Reusable Learnings](../.agents/learnings/README.md)
+- [Reusable Learnings](../docs/learnings/README.md)
 - `.agents/skills/`: template-local skills for TDD, diagnosis, Linear
   workflow, Convex backend work, and iOS voice-template work
 

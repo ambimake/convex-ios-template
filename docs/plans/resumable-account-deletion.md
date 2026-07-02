@@ -151,7 +151,7 @@ Manual/live checks:
 - Update `docs/deployment.md` Account Cleanup to explain scheduled deletion and
   eventual vendor cleanup.
 - Add a learning only if implementation exposes a reusable Convex scheduler or
-  vendor cleanup caveat not already captured in `.agents/learnings/`.
+  vendor cleanup caveat not already captured in `docs/learnings/`.
 
 ## Safe Concurrency
 
@@ -320,11 +320,11 @@ Manual/live checks:
 - planned_write_scope:
   - `docs/architecture.md`
   - `docs/deployment.md`
-  - `.agents/learnings/`
+  - `docs/learnings/`
 - depends_on: `[B-resumable-backend, C-vendor-cleanup]`
 - unblocks: `[F-final-verification]`
 - required_gates:
-  - command: `rg -n "deleteAccount|Account Deletion|Account Cleanup|deletion_in_progress" README.md docs .agents/learnings`
+  - command: `rg -n "deleteAccount|Account Deletion|Account Cleanup|deletion_in_progress" README.md docs docs/learnings`
   - status: `passed`
   - evidence: `architecture.md and deployment.md updated`
   - attempts: `1`
@@ -385,8 +385,8 @@ Manual/live checks:
 
 ## Learnings Checked
 
-- `.agents/learnings/convex-action-vendor-reporting.md`
-- `.agents/learnings/deployment-secrets.md`
+- `docs/learnings/convex-action-vendor-reporting.md`
+- `docs/learnings/deployment-secrets.md`
 
 ## Linear Updates
 

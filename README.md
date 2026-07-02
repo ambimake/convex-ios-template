@@ -110,7 +110,7 @@ Reusable agent guidance lives under `.agents/`:
   account-lifecycle boundaries.
 - `.agents/skills/ios-voice-template`: SwiftUI, capture, accessibility, and
   simulator verification workflow.
-- `.agents/learnings/`: compact runbooks for payload limits, vendor reporting,
+- `docs/learnings/`: compact runbooks for payload limits, vendor reporting,
   deployment secrets, simulator verification, and accessibility identifiers.
 - `docs/workflow.md`: tracker setup and source-of-truth boundaries.
 

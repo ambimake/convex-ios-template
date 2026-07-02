@@ -9,9 +9,9 @@ Read:
 
 1. `AGENTS.md`
 2. `docs/architecture.md`
-3. `.agents/learnings/convex-action-payload-limits.md`
-4. `.agents/learnings/convex-action-vendor-reporting.md`
-5. `.agents/learnings/deployment-secrets.md`
+3. `docs/learnings/convex-action-payload-limits.md`
+4. `docs/learnings/convex-action-vendor-reporting.md`
+5. `docs/learnings/deployment-secrets.md`
 
 ## Boundaries
 

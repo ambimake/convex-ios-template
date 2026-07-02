@@ -10,3 +10,8 @@ DerivedData/
 *.xccovarchive
 xcuserdata/
 ios/Local.xcconfig
+
+# Reference source-app checkouts (not part of the template)
+dotdot/
+tmplt/
+yaptask/

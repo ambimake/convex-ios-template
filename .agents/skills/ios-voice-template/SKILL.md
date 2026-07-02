@@ -9,8 +9,8 @@ Read:
 
 1. `AGENTS.md`
 2. `docs/architecture.md`
-3. `.agents/learnings/ios-simulator-verification.md`
-4. `.agents/learnings/ios-accessibility-identifiers.md`
+3. `docs/learnings/ios-simulator-verification.md`
+4. `docs/learnings/ios-accessibility-identifiers.md`
 
 ## SwiftUI Rules
 

@@ -16,7 +16,7 @@ Read:
 3. `AGENTS.md`
 4. relevant current-truth docs such as `README.md`, `docs/architecture.md`,
    and `docs/deployment.md`
-5. `.agents/learnings/README.md`, then only relevant entries
+5. `docs/learnings/README.md`, then only relevant entries
 6. area skills such as `tdd`, `convex-voice-agent`, or `ios-voice-template`
 
 ## Plan Shape
