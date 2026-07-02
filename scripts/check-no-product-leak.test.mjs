@@ -28,6 +28,17 @@ describe("findLeaks", () => {
     expect(findLeaks({ files })).toHaveLength(0);
   });
 
+  it("ignores gate/guard machinery and historical plans", () => {
+    const files = [
+      { path: "scripts/check-no-product-leak.mjs", content: "YapTask" },
+      { path: "scripts/verify-template-readiness.mjs", content: "guards the yaptask project file" },
+      { path: ".gitignore", content: "yaptask/" },
+      { path: "docs/plans/AMB-225-consolidate-account-deletion.md", content: "AMB-225 YapTask" },
+      { path: ".agents/skills/backport-lessons/SKILL.md", content: "e.g. yaptask/, tmplt/" },
+    ];
+    expect(findLeaks({ files })).toHaveLength(0);
+  });
+
   it("flags Linear issue keys", () => {
     const files = [{ path: "docs/x.md", content: "see AMB-123" }];
     expect(findLeaks({ files })[0]).toMatchObject({ token: "AMB-123" });

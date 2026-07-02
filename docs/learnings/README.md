@@ -15,3 +15,6 @@ that match the work area.
   writing or running `xcodebuild` and simulator screenshot commands.
 - [iOS accessibility identifiers](ios-accessibility-identifiers.md): open
   before adding smoke-tested SwiftUI controls.
+- [Eval fixture robustness](eval-fixture-robustness.md): open before writing
+  eval fixtures or judge rubrics.
+- [Eval judge gates](eval-judge-gates.md): open before wiring evals into CI.

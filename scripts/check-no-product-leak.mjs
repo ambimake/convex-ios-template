@@ -1,15 +1,33 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
-// Tokens that mean "a specific source app leaked into the generic template".
+// Tokens that mean "a specific source app's product domain or tracker leaked
+// into the generic template surface".
 export const DENYLIST = [/YapTask/i, /List Memory/, /List Instruction/, /AMB-\d+/];
 
-// Paths that legitimately name the source app: reference checkouts and the
-// backport spec/plan that document what we extracted FROM.
-const IGNORED_PREFIXES = ["yaptask/", "tmplt/", "dotdot/", "node_modules/"];
+// Prefixes that legitimately name the source app and are not part of the
+// generic template surface: the reference checkouts, branch-local/historical
+// plans, and the backport specs that document what we extracted FROM.
+const IGNORED_PREFIXES = [
+  "yaptask/",
+  "tmplt/",
+  "dotdot/",
+  "node_modules/",
+  "docs/plans/",
+  "docs/superpowers/",
+];
+
+// Individual files that must name source-app tokens to do their job: the gate
+// itself, the readiness guard that blocks the source Xcode project, config that
+// references the reference-checkout dirs, and the backport process doc.
 const IGNORED_EXACT = new Set([
-  "docs/superpowers/specs/2026-07-02-template-backport-framework-design.md",
-  "docs/plans/template-backport-framework-evals.md",
+  "scripts/check-no-product-leak.mjs",
+  "scripts/check-no-product-leak.test.mjs",
+  "scripts/verify-template-readiness.mjs",
+  "scripts/verify-template-readiness.test.mjs",
+  ".gitignore",
+  "vitest.config.ts",
+  ".agents/skills/backport-lessons/SKILL.md",
 ]);
 
 export function findLeaks({ files }) {

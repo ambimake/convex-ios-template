@@ -6,7 +6,8 @@ This is a cloneable starter for a small voice-agent iOS app using SwiftUI,
 Convex, Sign in with Apple, backend voice transcription, a trusted backend
 command action, Sentry, PostHog, and account deletion cleanup hooks.
 
-The template is intentionally not YapTask. Its example domain is `entries`: a
+The template is intentionally not the source app. Its example domain is
+`entries`: a
 signed-in user can type or speak a short request, the backend validates a
 generic operation, and server-owned mutations persist an entry.
 
@@ -29,7 +30,7 @@ generic operation, and server-owned mutations persist an entry.
 
 ## Excludes
 
-- YapTask List, Task, Subtask, timeline, undo, and command semantics.
+- The source app's List, Task, Subtask, timeline, undo, and command semantics.
 - Billing, subscriptions, feature flags, session replay, dashboards, or
   marketplace packaging.
 - Live secrets or deployment-specific vendor IDs.
@@ -55,13 +56,13 @@ npm test
 npm run typecheck:convex
 ```
 
-Root YapTask Convex commands are separate from this template-local backend.
+The source app's root Convex commands are separate from this template-local backend.
 Run template commands from this directory after copying it.
 
 ## iOS Setup
 
 The starter includes a template-local Xcode project. A clone does not need the
-root YapTask project to build or test the iOS app.
+source app's root project to build or test the iOS app.
 
 ```sh
 xcodebuild build -project VoiceAgentTemplate.xcodeproj -scheme VoiceAgentTemplate -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16'
@@ -114,7 +115,7 @@ Reusable agent guidance lives under `.agents/`:
   deployment secrets, simulator verification, and accessibility identifiers.
 - `docs/workflow.md`: tracker setup and source-of-truth boundaries.
 
-These are intentionally generic. They exclude YapTask's Linear workflow,
+These are intentionally generic. They exclude the source app's Linear workflow,
 product language, task/list/subtask model, and branch-specific planning rules.
 
 ## Secrets

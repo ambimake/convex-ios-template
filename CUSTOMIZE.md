@@ -41,7 +41,7 @@ Required app identity replacements:
 - `dev:your-convex-deployment`: local Convex deployment placeholder only.
 
 Keep these placeholders until the clone has a real app name, bundle ID, and
-deployment. Do not replace them with YapTask values.
+deployment. Do not replace them with the source app's values.
 
 ## Generated Files
 
