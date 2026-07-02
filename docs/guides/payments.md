@@ -42,3 +42,33 @@ Direct StoreKit 2 with backend-owned entitlement authority. See
 **Wiring:** set `SUBSCRIPTION_PRO_PRODUCT_ID` (and optional per-tier limit env
 vars) as Convex deployment env vars. Gate features with `evaluatePlanLimit`
 against the owner's plan from `currentPlan`.
+
+## Which backend? Server-authoritative (this template) vs. client-only
+
+Two source-app approaches informed this:
+
+- **Server-authoritative** (this template's choice): the Convex backend owns
+  entitlement, verification, and limits. The client can't spoof access, state
+  syncs across devices, and the server can gate provider-cost features. Best for
+  a Convex app — it's what we shipped.
+- **Client-only** (StoreKit + Keychain/UserDefaults, no backend): simpler and
+  offline-friendly, but the client is the authority (spoofable), no cross-device
+  sync, no server-side cost gating. Fine for a purely local app; not our default.
+
+## Access-gating rule engine + paywall
+
+A clean, reusable pattern (a pure, stateless rule engine — state lives in the
+plan; rules live in pure functions):
+
+- **Backend (tested):** `accessTier`, `gateDecision`, `badgeDecision`,
+  `meteredBannerVisibility` in `convex/lib/subscriptionPlan.ts`. `metered` is an
+  optional free-tier allowance (N free premium uses before the paywall);
+  `maxMeteredUses = 0` gives a plain pro/free hard gate.
+- **iOS (seam):** `ios/Core/TemplateAccessPolicy.swift` mirrors that logic as pure
+  Swift, and `ios/Features/Paywall/TemplatePaywallView.swift` is a **neutral
+  paywall scaffold to restyle** — the look and feel is the clone's to own; the
+  gating decisions come from the backend-owned entitlement.
+
+The **metered free-tier** (a "3 of 5 free uses left" banner, then the paywall) is
+a nice UX shape layered on top of the hard gate; drive the metered counter from
+server-side usage so it can't be reset by reinstalling.

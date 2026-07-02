@@ -6,9 +6,14 @@ import { describe, expect, it } from "vitest";
 import { api, internal } from "./_generated/api";
 import schema from "./schema";
 import {
+  type CurrentPlan,
+  accessTier,
+  badgeDecision,
   currentPlanFromEntitlement,
   evaluatePlanLimit,
+  gateDecision,
   limitConfigFromEnv,
+  meteredBannerVisibility,
   planLimitWindowStart,
 } from "./lib/subscriptionPlan";
 
@@ -103,6 +108,38 @@ describe("planLimitWindowStart", () => {
   it("returns UTC midnight for the day", () => {
     const noon = Date.UTC(2026, 0, 2, 12, 0, 0);
     expect(planLimitWindowStart(noon)).toBe(Date.UTC(2026, 0, 2, 0, 0, 0));
+  });
+});
+
+describe("access-gating rule engine", () => {
+  const proPlan: CurrentPlan = { tier: "pro", status: "active", displayName: "Pro" };
+  const freePlan: CurrentPlan = { tier: "free", status: "free", displayName: "Free" };
+
+  it("resolves the access tier from plan + metered allowance", () => {
+    expect(accessTier({ plan: proPlan, meteredUsed: 0, meteredAllowance: 5 })).toBe("pro");
+    expect(accessTier({ plan: freePlan, meteredUsed: 2, meteredAllowance: 5 })).toBe("metered");
+    expect(accessTier({ plan: freePlan, meteredUsed: 5, meteredAllowance: 5 })).toBe("free");
+    expect(accessTier({ plan: freePlan, meteredUsed: 0, meteredAllowance: 0 })).toBe("free");
+  });
+
+  it("gates premium features by tier", () => {
+    expect(gateDecision("pro", true)).toBe("allow");
+    expect(gateDecision("metered", true)).toBe("allow");
+    expect(gateDecision("free", true)).toBe("show_paywall");
+    expect(gateDecision("free", false)).toBe("allow"); // non-premium always allowed
+  });
+
+  it("chooses the badge by tier", () => {
+    expect(badgeDecision("pro", true)).toBe("hidden");
+    expect(badgeDecision("metered", true)).toBe("badge_with_control");
+    expect(badgeDecision("free", true)).toBe("badge_only");
+    expect(badgeDecision("free", false)).toBe("hidden");
+  });
+
+  it("shows the remaining-allowance banner only in the metered tier", () => {
+    expect(meteredBannerVisibility("metered", 2, 5)).toEqual({ visible: true, remaining: 3, total: 5 });
+    expect(meteredBannerVisibility("pro", 0, 5)).toEqual({ visible: false });
+    expect(meteredBannerVisibility("free", 5, 5)).toEqual({ visible: false });
   });
 });
 

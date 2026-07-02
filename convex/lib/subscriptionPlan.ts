@@ -146,6 +146,59 @@ export async function sha256Hex(value: string): Promise<string> {
   return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
+// --- Access-gating rule engine (pure) ---------------------------------------
+// A generic version of a stateless paywall rule engine: the plan owns state,
+// these functions own every gating rule. `metered` is an optional free-tier
+// allowance (N free premium uses before the paywall); pass meteredAllowance = 0
+// to disable it and get a plain pro/free hard gate.
+
+// pro = entitled; metered = not entitled but has free allowance remaining;
+// free = not entitled and allowance exhausted.
+export type AccessTier = "pro" | "metered" | "free";
+export type FeatureGate = "allow" | "show_paywall";
+// badge_only: badge replaces the control (free); badge_with_control: badge shown
+// alongside a usable control (metered).
+export type BadgeState = "hidden" | "badge_only" | "badge_with_control";
+export type BannerState =
+  | { visible: true; remaining: number; total: number }
+  | { visible: false };
+
+export function accessTier(args: {
+  plan: CurrentPlan;
+  meteredUsed: number;
+  meteredAllowance: number;
+}): AccessTier {
+  if (args.plan.tier === "pro") return "pro";
+  if (args.meteredAllowance > 0 && args.meteredUsed < args.meteredAllowance) return "metered";
+  return "free";
+}
+
+export function gateDecision(tier: AccessTier, isFeaturePremium: boolean): FeatureGate {
+  if (!isFeaturePremium) return "allow";
+  return tier === "free" ? "show_paywall" : "allow";
+}
+
+export function badgeDecision(tier: AccessTier, isFeaturePremium: boolean): BadgeState {
+  if (!isFeaturePremium) return "hidden";
+  switch (tier) {
+    case "pro":
+      return "hidden";
+    case "metered":
+      return "badge_with_control";
+    case "free":
+      return "badge_only";
+  }
+}
+
+export function meteredBannerVisibility(
+  tier: AccessTier,
+  meteredUsed: number,
+  meteredAllowance: number,
+): BannerState {
+  if (tier !== "metered") return { visible: false };
+  return { visible: true, remaining: meteredAllowance - meteredUsed, total: meteredAllowance };
+}
+
 function limitConfigForTier(
   tier: PlanTier,
   defaults: Record<PlanLimitName, number>,
