@@ -104,13 +104,13 @@ record the exact missing prerequisite rather than fabricating generated output.
 
 ## Learnings Applied
 
-- `.agents/learnings/convex-action-vendor-reporting.md`: keep vendor calls in
+- `docs/learnings/convex-action-vendor-reporting.md`: keep vendor calls in
   isolated fetch-based helpers/actions and do not add private user content to
   analytics or reporting payloads.
-- `.agents/learnings/deployment-secrets.md`: do not introduce live Sentry,
+- `docs/learnings/deployment-secrets.md`: do not introduce live Sentry,
   PostHog, Apple, Groq, or Convex deployment secrets while testing cleanup
   behavior.
-- `.agents/learnings/ios-simulator-verification.md`: run iOS checks with an
+- `docs/learnings/ios-simulator-verification.md`: run iOS checks with an
   explicit simulator OS and record CoreSimulator blockers precisely.
 
 ## Documentation Impact

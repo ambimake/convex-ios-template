@@ -23,11 +23,20 @@ truth. Subdirectories hold repeated artifacts or background.
   setup
 - [Workflow](./workflow.md): generic Linear/GitHub/Delivery Map loop
 
+## Reference Layer
+
+- [Decision Records](./decisions/README.md): generic, swappable template
+  defaults (stack, components, observability, auth, payments, attribution, …)
+- [Capability Guides](./guides/README.md): short "how this app does X" pages
+  (evals, voice, auth, payments, attribution)
+- [Reusable Learnings](./learnings/README.md): runbooks and sharp edges
+
 ## Agent Pack
 
-- [Reusable Learnings](../.agents/learnings/README.md)
-- `.agents/skills/`: template-local skills for TDD, diagnosis, Linear
-  workflow, Convex backend work, and iOS voice-template work
+- `.agents/skills/`: generic workflow skills (choose/shape/plan/execute/ship,
+  create-pr, handoff, compound-learning), support skills (review-panel, grill-me,
+  ubiquitous-language, write-a-skill, zoom-out, caveman), `backport-lessons`,
+  plus Convex and iOS-voice-template skills.
 
 ## Plans
 
@@ -36,5 +45,5 @@ Linear issues when using the tracker workflow.
 
 ## Decisions
 
-For hard-to-reverse choices, create short decision records under
-`docs/decisions/` in the cloned project.
+The template ships generic decision records under `docs/decisions/` as swappable
+defaults. Add clone-specific decisions there for hard-to-reverse choices.

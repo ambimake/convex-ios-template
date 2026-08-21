@@ -61,8 +61,8 @@ Wire the existing Swift voice-capture seam to real AVFoundation audio so tapping
 
 ## Relevant Learnings Applied
 
-- `.agents/learnings/convex-action-payload-limits.md`: base64 audio expands by roughly 4/3, so clip duration/quality must keep encoded action values comfortably below Convex limits.
-- `.agents/learnings/ios-simulator-verification.md`: use explicit simulator destinations such as `platform=iOS Simulator,OS=18.5,name=iPhone 16`.
+- `docs/learnings/convex-action-payload-limits.md`: base64 audio expands by roughly 4/3, so clip duration/quality must keep encoded action values comfortably below Convex limits.
+- `docs/learnings/ios-simulator-verification.md`: use explicit simulator destinations such as `platform=iOS Simulator,OS=18.5,name=iPhone 16`.
 - `convex/_generated/ai/guidelines.md`: backend function validators and auth ownership are already aligned; reread before changing Convex code.
 
 ## Implementation Notes

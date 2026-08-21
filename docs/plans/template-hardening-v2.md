@@ -43,14 +43,14 @@ this file as Git-owned planning until tracker work is created and linked.
 - `README.md`, `CUSTOMIZE.md`, `TEMPLATE_VARIABLES.md`,
   `docs/architecture.md`, and `docs/deployment.md`: current template setup,
   replacement, public contract, and deployment docs.
-- `.agents/learnings/ios-simulator-verification.md`: use explicit simulator
+- `docs/learnings/ios-simulator-verification.md`: use explicit simulator
   destinations and fixture launch arguments for visual evidence.
-- `.agents/learnings/ios-accessibility-identifiers.md`: smoke tests need stable
+- `docs/learnings/ios-accessibility-identifiers.md`: smoke tests need stable
   identifiers on concrete controls.
-- `.agents/learnings/deployment-secrets.md` should be opened before any node
+- `docs/learnings/deployment-secrets.md` should be opened before any node
   edits secret/config guidance.
-- `.agents/learnings/convex-action-payload-limits.md` and
-  `.agents/learnings/convex-action-vendor-reporting.md` should be opened before
+- `docs/learnings/convex-action-payload-limits.md` and
+  `docs/learnings/convex-action-vendor-reporting.md` should be opened before
   nodes that touch voice payloads or vendor reporting.
 
 ## Acceptance Criteria
@@ -235,7 +235,7 @@ Safe concurrency:
   - `ios/Features/Settings/`
   - `ios/Core/TemplateAccessibility.swift`
   - `ios/Tests/`
-  - `.agents/learnings/ios-simulator-verification.md` only if the smoke flow
+  - `docs/learnings/ios-simulator-verification.md` only if the smoke flow
     discovers a reusable simulator lesson
   - `docs/plans/template-hardening-v2.md`
 - `depends_on`:

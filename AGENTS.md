@@ -6,7 +6,7 @@ This starter is a SwiftUI iOS app backed by a Convex TypeScript backend. Read
 `README.md` for orientation, `CONTEXT.md` for product scope, `BRAND.md` before
 writing product copy, `ENGINEERING.md` for implementation principles,
 `docs/architecture.md` for system boundaries, `docs/deployment.md` for setup
-and secrets, and `.agents/learnings/README.md` before changing backend, voice,
+and secrets, and `docs/learnings/README.md` before changing backend, voice,
 analytics, or simulator verification paths.
 
 ## Hard Rules

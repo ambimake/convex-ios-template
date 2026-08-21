@@ -1,0 +1,9 @@
+{
+  "id": "extract-contact",
+  "prompt": "Extract the contact as JSON {name,email} from: Reach Dana Lee at dana.lee@example.com.",
+  "checks": [
+    { "type": "jsonPath", "path": "name", "equals": "Dana Lee" },
+    { "type": "jsonPath", "path": "email", "equals": "dana.lee@example.com" }
+  ],
+  "judge": { "rubric": "Output is valid JSON with the correct name and email.", "minScore": 4 }
+}

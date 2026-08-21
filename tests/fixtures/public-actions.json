@@ -46,7 +46,8 @@
           "entries": 1,
           "commandHistory": 1,
           "appleSignInCredentials": 0,
-          "usageEvents": 1
+          "usageEvents": 1,
+          "subscriptions": 0
         },
         "batches": 1,
         "cleanup": {
@@ -65,7 +66,8 @@
           "entries": 1000,
           "commandHistory": 1000,
           "appleSignInCredentials": 0,
-          "usageEvents": 1000
+          "usageEvents": 1000,
+          "subscriptions": 0
         },
         "batches": 20,
         "jobStatus": "deleting"
@@ -77,7 +79,8 @@
           "entries": 1000,
           "commandHistory": 1000,
           "appleSignInCredentials": 0,
-          "usageEvents": 1000
+          "usageEvents": 1000,
+          "subscriptions": 0
         },
         "batches": 21,
         "cleanup": {

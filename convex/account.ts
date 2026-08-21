@@ -369,6 +369,7 @@ async function deleteOwnedDataBatch(ctx: MutationCtx, ownerKey: string): Promise
   const commandHistory = await deleteCommandHistory(ctx, ownerKey);
   const appleSignInCredentials = await deleteAppleCredentials(ctx, ownerKey);
   const usageEvents = await deleteUsageEvents(ctx, ownerKey);
+  const subscriptions = await deleteSubscriptions(ctx, ownerKey);
 
   return {
     deleted: {
@@ -377,13 +378,15 @@ async function deleteOwnedDataBatch(ctx: MutationCtx, ownerKey: string): Promise
       commandHistory: commandHistory.deleted,
       appleSignInCredentials: appleSignInCredentials.deleted,
       usageEvents: usageEvents.deleted,
+      subscriptions: subscriptions.deleted,
     },
     hasMore:
       profiles.hasMore
       || entries.hasMore
       || commandHistory.hasMore
       || appleSignInCredentials.hasMore
-      || usageEvents.hasMore,
+      || usageEvents.hasMore
+      || subscriptions.hasMore,
   };
 }
 
@@ -423,6 +426,14 @@ async function deleteUsageEvents(ctx: MutationCtx, ownerKey: string) {
   const rows = await ctx.db
     .query("usageEvents")
     .withIndex("by_ownerKey_and_createdAt", (q) => q.eq("ownerKey", ownerKey))
+    .take(DELETE_BATCH_LIMIT + 1);
+  return await deleteRows(ctx, rows);
+}
+
+async function deleteSubscriptions(ctx: MutationCtx, ownerKey: string) {
+  const rows = await ctx.db
+    .query("subscriptions")
+    .withIndex("by_ownerKey", (q) => q.eq("ownerKey", ownerKey))
     .take(DELETE_BATCH_LIMIT + 1);
   return await deleteRows(ctx, rows);
 }

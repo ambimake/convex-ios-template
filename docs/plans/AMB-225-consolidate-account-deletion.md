@@ -165,7 +165,7 @@ Contract (should be unchanged):
 
 ## Learnings Applied
 
-- Checked `.agents/learnings/README.md`; opened
+- Checked `docs/learnings/README.md`; opened
   `convex-action-vendor-reporting.md`: vendor cleanup stays in isolated internal
   actions with fetch seams; do not pull Node SDKs into the public action module
   when moving orchestration.
